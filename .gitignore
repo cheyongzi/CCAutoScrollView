@@ -49,7 +49,3 @@ xcuserdata
 *.moved-aside
 DerivedData
 *.xcuserstate
-
-#Carthage
-Carthage
-Cartfile.resolved
