@@ -146,13 +146,15 @@ class CCAutoScrollView: UIView {
             workDataSource.insert(lastItem, at: 0)
             workDataSource.append(firstItem)
             
+            collectionView.reloadData()
+            
             collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .left, animated: false)
         }
     }
     
     //MARK: - initialization
     private func initialization() {
-        self.layoutIfNeeded()
+        
         closure {
             flowlayout = UICollectionViewFlowLayout()
             flowlayout.minimumLineSpacing = 0
@@ -171,6 +173,12 @@ class CCAutoScrollView: UIView {
             collectionView.register(CCCollectionViewCell.self, forCellWithReuseIdentifier: identifier)
             collectionView.isPagingEnabled = true
             self.addSubview(collectionView)
+            
+            let topConstraint = NSLayoutConstraint(item: collectionView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+            let botConstraint = NSLayoutConstraint(item: collectionView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+            let leftConstraint = NSLayoutConstraint(item: collectionView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0)
+            let rightConstraint = NSLayoutConstraint(item: collectionView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0)
+            NSLayoutConstraint.activate([topConstraint, botConstraint, leftConstraint, rightConstraint])
         }
     }
     
@@ -183,6 +191,13 @@ class CCAutoScrollView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initialization()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        flowlayout.itemSize = self.bounds.size
+        collectionView.frame = self.bounds
     }
     
     //MARK: - Deinit
@@ -213,11 +228,12 @@ extension CCAutoScrollView: UICollectionViewDataSource{
     }
 }
 
-extension CCAutoScrollView: UICollectionViewDelegate {
+extension CCAutoScrollView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     //MARK: - UICollectionView delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.autoScrollView(self, didSelectItemAt: indexPath)
     }
+    
     //MARK: - UIScrollView delegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.position(scrollView)
