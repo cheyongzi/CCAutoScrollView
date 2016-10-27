@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		45E55E6A1DBF508C007886F6 /* CustomClassCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E55E691DBF508C007886F6 /* CustomClassCollectionViewCell.swift */; };
+		45E55E791DC1ADA3007886F6 /* CCAutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E55E771DC1ADA3007886F6 /* CCAutoScrollView.swift */; };
+		45E55E7A1DC1ADA3007886F6 /* CCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E55E781DC1ADA3007886F6 /* CCCollectionViewCell.swift */; };
 		45EEADA61DBEFECB00A4CD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADA51DBEFECB00A4CD8C /* AppDelegate.swift */; };
 		45EEADA81DBEFECB00A4CD8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADA71DBEFECB00A4CD8C /* ViewController.swift */; };
 		45EEADAB1DBEFECB00A4CD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EEADA91DBEFECB00A4CD8C /* Main.storyboard */; };
 		45EEADAD1DBEFECB00A4CD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45EEADAC1DBEFECB00A4CD8C /* Assets.xcassets */; };
 		45EEADB01DBEFECB00A4CD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EEADAE1DBEFECB00A4CD8C /* LaunchScreen.storyboard */; };
-		45EEADB91DBEFEFC00A4CD8C /* CCAutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADB81DBEFEFC00A4CD8C /* CCAutoScrollView.swift */; };
-		45EEADBC1DBF00CF00A4CD8C /* CCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADBB1DBF00CF00A4CD8C /* CCCollectionViewCell.swift */; };
 		45EEADBE1DBF023700A4CD8C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADBD1DBF023700A4CD8C /* MainViewController.swift */; };
 		45EEADC01DBF02F500A4CD8C /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADBF1DBF02F500A4CD8C /* DefaultViewController.swift */; };
 		45EEADC21DBF030100A4CD8C /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADC11DBF030100A4CD8C /* CustomViewController.swift */; };
@@ -26,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		45E55E691DBF508C007886F6 /* CustomClassCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomClassCollectionViewCell.swift; sourceTree = "<group>"; };
+		45E55E771DC1ADA3007886F6 /* CCAutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCAutoScrollView.swift; sourceTree = "<group>"; };
+		45E55E781DC1ADA3007886F6 /* CCCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCCollectionViewCell.swift; sourceTree = "<group>"; };
 		45EEADA21DBEFECB00A4CD8C /* AutoScrollViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoScrollViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45EEADA51DBEFECB00A4CD8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45EEADA71DBEFECB00A4CD8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,8 +35,6 @@
 		45EEADAC1DBEFECB00A4CD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45EEADAF1DBEFECB00A4CD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45EEADB11DBEFECB00A4CD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45EEADB81DBEFEFC00A4CD8C /* CCAutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCAutoScrollView.swift; sourceTree = "<group>"; };
-		45EEADBB1DBF00CF00A4CD8C /* CCCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCCollectionViewCell.swift; sourceTree = "<group>"; };
 		45EEADBD1DBF023700A4CD8C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		45EEADBF1DBF02F500A4CD8C /* DefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		45EEADC11DBF030100A4CD8C /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +55,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45E55E761DC1ADA3007886F6 /* AutoScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				45E55E771DC1ADA3007886F6 /* CCAutoScrollView.swift */,
+				45E55E781DC1ADA3007886F6 /* CCCollectionViewCell.swift */,
+			);
+			name = AutoScrollView;
+			path = ../../AutoScrollView;
+			sourceTree = "<group>";
+		};
 		45EEAD991DBEFECB00A4CD8C = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +84,8 @@
 		45EEADA41DBEFECB00A4CD8C /* AutoScrollViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				45E55E761DC1ADA3007886F6 /* AutoScrollView */,
 				45EEADBA1DBF003200A4CD8C /* Example */,
-				45EEADB71DBEFEFC00A4CD8C /* AutoScrollView */,
 				45EEADA51DBEFECB00A4CD8C /* AppDelegate.swift */,
 				45EEADA71DBEFECB00A4CD8C /* ViewController.swift */,
 				45EEADBD1DBF023700A4CD8C /* MainViewController.swift */,
@@ -85,15 +95,6 @@
 				45EEADB11DBEFECB00A4CD8C /* Info.plist */,
 			);
 			path = AutoScrollViewExample;
-			sourceTree = "<group>";
-		};
-		45EEADB71DBEFEFC00A4CD8C /* AutoScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				45EEADB81DBEFEFC00A4CD8C /* CCAutoScrollView.swift */,
-				45EEADBB1DBF00CF00A4CD8C /* CCCollectionViewCell.swift */,
-			);
-			path = AutoScrollView;
 			sourceTree = "<group>";
 		};
 		45EEADBA1DBF003200A4CD8C /* Example */ = {
@@ -189,12 +190,12 @@
 				45EEADC71DBF3F6500A4CD8C /* CustomCollectionViewCell.swift in Sources */,
 				45EEADC21DBF030100A4CD8C /* CustomViewController.swift in Sources */,
 				45EEADCB1DBF414600A4CD8C /* XIBViewController.swift in Sources */,
+				45E55E7A1DC1ADA3007886F6 /* CCCollectionViewCell.swift in Sources */,
 				45E55E6A1DBF508C007886F6 /* CustomClassCollectionViewCell.swift in Sources */,
-				45EEADB91DBEFEFC00A4CD8C /* CCAutoScrollView.swift in Sources */,
 				45EEADA81DBEFECB00A4CD8C /* ViewController.swift in Sources */,
-				45EEADBC1DBF00CF00A4CD8C /* CCCollectionViewCell.swift in Sources */,
 				45EEADA61DBEFECB00A4CD8C /* AppDelegate.swift in Sources */,
 				45EEADBE1DBF023700A4CD8C /* MainViewController.swift in Sources */,
+				45E55E791DC1ADA3007886F6 /* CCAutoScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +318,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NHYHE776Y8;
 				INFOPLIST_FILE = AutoScrollViewExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hunantv.AutoScrollViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -330,6 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NHYHE776Y8;
 				INFOPLIST_FILE = AutoScrollViewExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hunantv.AutoScrollViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
