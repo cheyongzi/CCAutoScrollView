@@ -89,7 +89,7 @@ class CCAutoScrollView: UIView {
                 strongSelf.autoScrollAction()
             }
         })
-        timer?.activate()
+        timer?.resume()
     }
     //MARK: - invalidate timer
     private func invalidateTimer() {
@@ -163,10 +163,6 @@ class CCAutoScrollView: UIView {
         
         closure {
             collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flowlayout)
-            collectionView.leftAnchor.constraint(equalTo: self.leftAnchor)
-            collectionView.rightAnchor.constraint(equalTo: self.rightAnchor)
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            collectionView.topAnchor.constraint(equalTo: self.topAnchor)
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.showsVerticalScrollIndicator = false
