@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "CYZAutoScrollView"
+  s.name         = "CCAutoScrollView"
   s.version      = "1.0"
   s.summary      = "基于CollectionView实现的用户可自定义cell的循环滚动库"
 
