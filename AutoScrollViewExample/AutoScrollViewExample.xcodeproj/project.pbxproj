@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4544293A1DC35653002D92EA /* CCAutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454429381DC35653002D92EA /* CCAutoScrollView.swift */; };
+		4544293B1DC35653002D92EA /* CCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454429391DC35653002D92EA /* CCCollectionViewCell.swift */; };
 		45E55E6A1DBF508C007886F6 /* CustomClassCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E55E691DBF508C007886F6 /* CustomClassCollectionViewCell.swift */; };
-		45E55E791DC1ADA3007886F6 /* CCAutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E55E771DC1ADA3007886F6 /* CCAutoScrollView.swift */; };
-		45E55E7A1DC1ADA3007886F6 /* CCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E55E781DC1ADA3007886F6 /* CCCollectionViewCell.swift */; };
 		45EEADA61DBEFECB00A4CD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADA51DBEFECB00A4CD8C /* AppDelegate.swift */; };
 		45EEADA81DBEFECB00A4CD8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEADA71DBEFECB00A4CD8C /* ViewController.swift */; };
 		45EEADAB1DBEFECB00A4CD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45EEADA91DBEFECB00A4CD8C /* Main.storyboard */; };
@@ -25,9 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		454429381DC35653002D92EA /* CCAutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCAutoScrollView.swift; sourceTree = "<group>"; };
+		454429391DC35653002D92EA /* CCCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCCollectionViewCell.swift; sourceTree = "<group>"; };
 		45E55E691DBF508C007886F6 /* CustomClassCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomClassCollectionViewCell.swift; sourceTree = "<group>"; };
-		45E55E771DC1ADA3007886F6 /* CCAutoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCAutoScrollView.swift; sourceTree = "<group>"; };
-		45E55E781DC1ADA3007886F6 /* CCCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCCollectionViewCell.swift; sourceTree = "<group>"; };
 		45EEADA21DBEFECB00A4CD8C /* AutoScrollViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoScrollViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45EEADA51DBEFECB00A4CD8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45EEADA71DBEFECB00A4CD8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,15 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45E55E761DC1ADA3007886F6 /* AutoScrollView */ = {
+		454429371DC35653002D92EA /* AutoScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				45E55E771DC1ADA3007886F6 /* CCAutoScrollView.swift */,
-				45E55E781DC1ADA3007886F6 /* CCCollectionViewCell.swift */,
+				454429381DC35653002D92EA /* CCAutoScrollView.swift */,
+				454429391DC35653002D92EA /* CCCollectionViewCell.swift */,
 			);
-			name = AutoScrollView;
-			path = ../../AutoScrollView;
-			sourceTree = "<group>";
+			path = AutoScrollView;
+			sourceTree = SOURCE_ROOT;
 		};
 		45EEAD991DBEFECB00A4CD8C = {
 			isa = PBXGroup;
@@ -84,7 +83,7 @@
 		45EEADA41DBEFECB00A4CD8C /* AutoScrollViewExample */ = {
 			isa = PBXGroup;
 			children = (
-				45E55E761DC1ADA3007886F6 /* AutoScrollView */,
+				454429371DC35653002D92EA /* AutoScrollView */,
 				45EEADBA1DBF003200A4CD8C /* Example */,
 				45EEADA51DBEFECB00A4CD8C /* AppDelegate.swift */,
 				45EEADA71DBEFECB00A4CD8C /* ViewController.swift */,
@@ -190,12 +189,12 @@
 				45EEADC71DBF3F6500A4CD8C /* CustomCollectionViewCell.swift in Sources */,
 				45EEADC21DBF030100A4CD8C /* CustomViewController.swift in Sources */,
 				45EEADCB1DBF414600A4CD8C /* XIBViewController.swift in Sources */,
-				45E55E7A1DC1ADA3007886F6 /* CCCollectionViewCell.swift in Sources */,
+				4544293B1DC35653002D92EA /* CCCollectionViewCell.swift in Sources */,
 				45E55E6A1DBF508C007886F6 /* CustomClassCollectionViewCell.swift in Sources */,
 				45EEADA81DBEFECB00A4CD8C /* ViewController.swift in Sources */,
 				45EEADA61DBEFECB00A4CD8C /* AppDelegate.swift in Sources */,
 				45EEADBE1DBF023700A4CD8C /* MainViewController.swift in Sources */,
-				45E55E791DC1ADA3007886F6 /* CCAutoScrollView.swift in Sources */,
+				4544293A1DC35653002D92EA /* CCAutoScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
