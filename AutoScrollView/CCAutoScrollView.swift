@@ -29,7 +29,8 @@ protocol CCAutoScrollViewDelegate: class{
     /// - parameter indexPath:
     func autoScrollView(_ scrollView: CCAutoScrollView, didSelectItemAt indexPath: IndexPath)
     
-    /// did scroll to index path
+    
+    /// scroll to index path
     ///
     /// - parameter scrollView:
     /// - parameter indexPath:
@@ -40,6 +41,7 @@ extension CCAutoScrollViewDelegate {
     func autoScrollView(_ scrollView: CCAutoScrollView, didSelectItemAt indexPath: IndexPath) {
         
     }
+    
     func autoScrollView(_ scrollView: CCAutoScrollView, scrollToItemAt indexPath: IndexPath) {
         
     }
@@ -54,8 +56,8 @@ class CCAutoScrollView: UIView {
     public private(set) var collectionView: UICollectionView!
     
     private var flowlayout: UICollectionViewFlowLayout!
-    //timer is optional,Timer is strong target to self
-    private var timer: DispatchSourceTimer?
+    //timer is optional
+    private var timer: Timer?
     //current index default is 1
     var currentIndex: Int = 1
     //MARK: - auto scroll time default is 5.0
@@ -82,24 +84,18 @@ class CCAutoScrollView: UIView {
     
     //MARK: - Set up timer
     private func setupTimer() {
-        timer = DispatchSource.makeTimerSource()
-        timer?.scheduleRepeating(deadline: DispatchTime.now()+DispatchTimeInterval.milliseconds(Int(autoScrollTimeInterval*1000)), interval: autoScrollTimeInterval)
-        timer?.setEventHandler(handler: { [weak self] in
-            if let strongSelf = self {
-                strongSelf.autoScrollAction()
-            }
-        })
-        timer?.resume()
+        timer = Timer.scheduledTimer(timeInterval: autoScrollTimeInterval, target: self, selector: #selector(autoScrollAction), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .defaultRunLoopMode)
     }
     //MARK: - invalidate timer
     private func invalidateTimer() {
-        timer?.cancel()
+        timer?.invalidate()
         timer = nil
     }
     //MARK: - auto scroll action
     @objc private func autoScrollAction() {
         currentIndex += 1
-        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .left, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: true)
     }
     //MARK: - UIScrollViewDelegate
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -108,7 +104,7 @@ class CCAutoScrollView: UIView {
         }
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if autoScrollEnable {
             self.setupTimer()
         }
@@ -143,12 +139,10 @@ class CCAutoScrollView: UIView {
         if dataSource.count > 1 {
             let firstItem = dataSource[0]
             let lastItem = dataSource.last
-            workDataSource.insert(lastItem, at: 0)
+            workDataSource.insert(lastItem!, at: 0)
             workDataSource.append(firstItem)
             
-            collectionView.reloadData()
-            
-            collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .left, animated: false)
+            collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: false)
         }
     }
     
@@ -200,6 +194,13 @@ class CCAutoScrollView: UIView {
         collectionView.frame = self.bounds
     }
     
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        if newSuperview == nil {
+            self.invalidateTimer()
+        }
+    }
+    
     //MARK: - Deinit
     deinit {
         print("CCAutoScrollView deinit")
@@ -215,8 +216,9 @@ extension CCAutoScrollView: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        
         if let config = cellConfig {
-            config(cell, workDataSource[indexPath.row])
+            config(cell, workDataSource[indexPath.item])
         } else {
             if let defaultCell = cell as? CCCollectionViewCell {
                 if let imageName = workDataSource[indexPath.row] as? String {
@@ -231,31 +233,42 @@ extension CCAutoScrollView: UICollectionViewDataSource{
 extension CCAutoScrollView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     //MARK: - UICollectionView delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.autoScrollView(self, didSelectItemAt: indexPath)
+        delegate?.autoScrollView(self, didSelectItemAt: IndexPath(item: currentCellIndex()-1, section: 0))
     }
     
     //MARK: - UIScrollView delegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.position(scrollView)
+        self.scrollViewDidEndScrollingAnimation(scrollView)
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         self.position(scrollView)
+        delegate?.autoScrollView(self, scrollToItemAt: IndexPath(item: currentCellIndex()-1, section: 0))
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.scrollViewDidEndScrollingAnimation(scrollView)
     }
     
     func position(_ scrollView: UIScrollView) {
         let maxRightOffset = collectionView.bounds.size.width * CGFloat(workDataSource.count-1)
-        if scrollView.contentOffset.x == maxRightOffset {
+        if scrollView.contentOffset.x >= maxRightOffset {
             let firstIndexPath = IndexPath(item: 1, section: 0)
-            collectionView.scrollToItem(at: firstIndexPath, at: .left, animated: false)
-            currentIndex = 1
-        } else if (scrollView.contentOffset.x == 0) {
+            collectionView.scrollToItem(at: firstIndexPath, at: .centeredHorizontally, animated: false)
+        } else if (scrollView.contentOffset.x <= 0) {
             let lastIndexPath = IndexPath(item: workDataSource.count-2, section: 0)
-            collectionView.scrollToItem(at: lastIndexPath, at: .left, animated: false)
-            currentIndex = workDataSource.count - 2
-        } else {
-            currentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
+            collectionView.scrollToItem(at: lastIndexPath, at: .centeredHorizontally, animated: false)
         }
-        delegate?.autoScrollView(self, scrollToItemAt: IndexPath(item: currentIndex, section: 0))
+    }
+    
+    func currentCellIndex() -> Int {
+        let index = Int(collectionView.contentOffset.x / collectionView.bounds.size.width)
+        currentIndex = index
+        if currentIndex == workDataSource.count - 1 {
+            currentIndex = 1
+        } else if currentIndex == 0 {
+            currentIndex = workDataSource.count - 2
+        }
+        return currentIndex
     }
 }
