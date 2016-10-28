@@ -84,6 +84,9 @@ class CCAutoScrollView: UIView {
     
     //MARK: - Set up timer
     private func setupTimer() {
+        guard workDataSource.count > 0 else {
+            return
+        }
         timer = Timer.scheduledTimer(timeInterval: autoScrollTimeInterval, target: self, selector: #selector(autoScrollAction), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: .defaultRunLoopMode)
     }
@@ -136,14 +139,16 @@ class CCAutoScrollView: UIView {
     public private(set) var workDataSource: [Any] = []
     private func setupDatas() {
         workDataSource = dataSource
-        if dataSource.count > 1 {
-            let firstItem = dataSource[0]
-            let lastItem = dataSource.last
-            workDataSource.insert(lastItem!, at: 0)
-            workDataSource.append(firstItem)
-            
-            collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: false)
+        guard dataSource.count > 0 else {
+            return
         }
+        
+        let firstItem = dataSource[0]
+        let lastItem = dataSource.last
+        workDataSource.insert(lastItem!, at: 0)
+        workDataSource.append(firstItem)
+        
+        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: false)
     }
     
     //MARK: - initialization
