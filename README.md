@@ -66,4 +66,7 @@ CCAutoScrollView is an carousel view written by swift
         }
     }
 
+# Tips
+
+cellConfig应该只能修改CollectionViewCell里面的内容，如果根据滚动修改界面的数据，参考CCAutoScrollViewDelegate
 
