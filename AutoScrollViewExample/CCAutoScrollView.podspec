@@ -24,8 +24,7 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC
-                   DESC
+  s.description  = "基于CollectionView实现的用户可自定义cell的循环滚动库"
 
   s.homepage     = "https://github.com/cheyongzi/CCAutoScrollView"
 
@@ -36,9 +35,9 @@ Pod::Spec.new do |s|
 
    s.ios.deployment_target = "8.0"
 
-  s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView", :tag => "1.0" }
 
-  s.source_files  = "CCAutoScrollView/**/*.swift"
+  s.source_files  = "AutoScrollView/*.swift"
 
 
   s.requires_arc = true
