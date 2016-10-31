@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CCAutoScrollView"
-  s.version      = "1.0"
+  s.version      = "master"
   s.summary      = "基于CollectionView实现的用户可自定义cell的循环滚动库"
 
   # This description is used to generate tags and improve search results.
@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
 
    s.ios.deployment_target = "8.0"
 
-  s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView", :tag => "1.0" }
+  s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView", :tag => "master" }
 
   s.source_files  = "AutoScrollView/*.swift"
 
