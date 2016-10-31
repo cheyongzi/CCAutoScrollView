@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView", :tag => "1.0" }
 
-  s.source_files  = "AutoScrollViewExample/**/*.swift"
+  s.source_files  = "AutoScrollViewExample/AutoScrollView/*.swift"
 
 
   s.requires_arc = true
