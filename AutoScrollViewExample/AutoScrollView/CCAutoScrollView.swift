@@ -21,7 +21,7 @@ func closure(method: () -> ()) {
     method()
 }
 
-protocol CCAutoScrollViewDelegate: class{
+public protocol CCAutoScrollViewDelegate: class{
     
     /// did select at index path
     ///
@@ -49,7 +49,7 @@ extension CCAutoScrollViewDelegate {
 
 let identifier: String = "CCAutoScrollViewCell"
 
-class CCAutoScrollView: UIView {
+public class CCAutoScrollView: UIView {
     
     weak var delegate: CCAutoScrollViewDelegate?
     
