@@ -21,7 +21,7 @@ func closure(method: () -> ()) {
     method()
 }
 
-open protocol CCAutoScrollViewDelegate: class{
+public protocol CCAutoScrollViewDelegate: class{
     
     /// did select at index path
     ///
