@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
 
 
    s.ios.deployment_target = "8.0"
+	s.ios.framework    = 'UIKit'
 
   s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView.git", :tag => "2.0" }
 
