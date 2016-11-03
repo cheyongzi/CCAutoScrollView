@@ -33,12 +33,12 @@ Pod::Spec.new do |s|
   s.author             = { "车勇子" => "389936133@qq.com" }
 
 
-   s.ios.deployment_target = "8.0"
-	s.ios.framework    = 'UIKit'
+  s.ios.deployment_target = "8.0"
+  s.platform = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView.git", :tag => "2.0" }
 
-  s.source_files  = "AutoScrollViewExample/AutoScrollView/*.swift"
+  s.source_files  = "AutoScrollView/*.swift"
 
 
   s.requires_arc = true
