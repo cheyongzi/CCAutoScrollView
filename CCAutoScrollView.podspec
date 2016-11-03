@@ -8,39 +8,16 @@
 
 Pod::Spec.new do |s|
 
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-
-  s.name         = "CCAutoScrollView"
-  s.version      = "2.0"
-  s.summary      = "基于CollectionView实现的用户可自定义cell的循环滚动库"
-
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "基于CollectionView实现的用户可自定义cell的循环滚动库"
-
-  s.homepage     = "https://github.com/cheyongzi/CCAutoScrollView"
-
-  s.license      = "MIT CCAutoScrollView"
-
+  s.name         = 'CCAutoScrollView'
+  s.version      = '2.0'
+  s.summary      = '基于CollectionView实现的用户可自定义cell的循环滚动库'
+  s.description  = '基于CollectionView实现的用户可自定义cell的循环滚动库'
+  s.homepage     = 'https://github.com/cheyongzi/CCAutoScrollView'
+  s.license      = 'MIT'
   s.author             = { "车勇子" => "389936133@qq.com" }
-
-
-  s.ios.deployment_target = "8.0"
-  s.platform = :ios, "8.0"
-
+  s.ios.deployment_target = '8.0'
+  s.platform = :ios, '8.0'
   s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView.git", :tag => "2.0" }
-
-  s.source_files  = "AutoScrollView/*.swift"
-
-
-  s.requires_arc = true
+  s.source_files  = 'AutoScrollView/*.swift'
 
 end
