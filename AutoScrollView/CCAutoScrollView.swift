@@ -143,6 +143,12 @@ open class CCAutoScrollView: UIView {
             return
         }
         
+        if timer == nil {
+            if autoScrollEnable {
+                self.setupTimer()
+            }
+        }
+        
         let firstItem = dataSource[0]
         let lastItem = dataSource.last
         workDataSource.insert(lastItem!, at: 0)
