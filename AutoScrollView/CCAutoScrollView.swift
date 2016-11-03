@@ -101,13 +101,13 @@ open class CCAutoScrollView: UIView {
         collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: true)
     }
     //MARK: - UIScrollViewDelegate
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if autoScrollEnable {
             self.invalidateTimer()
         }
     }
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if autoScrollEnable {
             self.setupTimer()
         }
@@ -187,19 +187,19 @@ open class CCAutoScrollView: UIView {
         self.initialization()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initialization()
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         flowlayout.itemSize = self.bounds.size
         collectionView.frame = self.bounds
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override open func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         if newSuperview == nil {
             self.invalidateTimer()
@@ -215,11 +215,11 @@ open class CCAutoScrollView: UIView {
 
 extension CCAutoScrollView: UICollectionViewDataSource{
     //MARK: - UICollectionView data source
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return workDataSource.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         
         if let config = cellConfig {
@@ -237,21 +237,21 @@ extension CCAutoScrollView: UICollectionViewDataSource{
 
 extension CCAutoScrollView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     //MARK: - UICollectionView delegate
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.autoScrollView(self, didSelectItemAt: IndexPath(item: currentCellIndex()-1, section: 0))
     }
     
     //MARK: - UIScrollView delegate
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.scrollViewDidEndScrollingAnimation(scrollView)
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         self.position(scrollView)
         delegate?.autoScrollView(self, scrollToItemAt: IndexPath(item: currentCellIndex()-1, section: 0))
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.scrollViewDidEndScrollingAnimation(scrollView)
     }
     
