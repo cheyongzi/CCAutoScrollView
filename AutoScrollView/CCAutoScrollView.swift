@@ -17,7 +17,7 @@ import UIKit
 ///  seperate code
 ///
 /// - parameter method: 执行的block
-func closure(method: () -> ()) {
+public func closure(method: () -> ()) {
     method()
 }
 
@@ -51,7 +51,7 @@ let identifier: String = "CCAutoScrollViewCell"
 
 open class CCAutoScrollView: UIView {
     
-    weak var delegate: CCAutoScrollViewDelegate?
+    public weak var delegate: CCAutoScrollViewDelegate?
     
     public private(set) var collectionView: UICollectionView!
     
@@ -61,7 +61,7 @@ open class CCAutoScrollView: UIView {
     //current index default is 1
     var currentIndex: Int = 1
     //MARK: - auto scroll time default is 5.0
-    var autoScrollTimeInterval: Double = 5.0 {
+    public var autoScrollTimeInterval: Double = 5.0 {
         didSet {
             if autoScrollTimeInterval > 0 {
                 self.autoScrollEnable = true
@@ -72,7 +72,7 @@ open class CCAutoScrollView: UIView {
         }
     }
     //MARK: - autoscroll enable
-    var autoScrollEnable: Bool = true {
+    public var autoScrollEnable: Bool = true {
         didSet {
             if !autoScrollEnable {
                 self.invalidateTimer()
@@ -113,13 +113,13 @@ open class CCAutoScrollView: UIView {
         }
     }
     //MARK: - register cell class custom cell user code
-    var cellClass: AnyClass? {
+    public var cellClass: AnyClass? {
         didSet {
             collectionView.register(cellClass, forCellWithReuseIdentifier: identifier)
         }
     }
     //MARK: - register cell nib custom cell use xib
-    var cellNibName: String? {
+    public var cellNibName: String? {
         didSet {
             if let nibName = cellNibName {
                 collectionView.register(UINib(nibName: nibName, bundle: nil), forCellWithReuseIdentifier: identifier)
@@ -127,10 +127,10 @@ open class CCAutoScrollView: UIView {
         }
     }
     //MARK: - cell config
-    var cellConfig: ((UICollectionViewCell, Any) -> ())?
+    public var cellConfig: ((UICollectionViewCell, Any) -> ())?
     
     //MARK: - data source
-    var dataSource: [Any] = [] {
+    public var dataSource: [Any] = [] {
         didSet {
             self.setupDatas()
         }

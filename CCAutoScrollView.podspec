@@ -9,15 +9,15 @@
 Pod::Spec.new do |s|
 
   s.name         = 'CCAutoScrollView'
-  s.version      = '2.0'
+  s.version      = '2.0.1'
   s.summary      = '基于CollectionView实现的用户可自定义cell的循环滚动库'
   s.description  = '基于CollectionView实现的用户可自定义cell的循环滚动库'
   s.homepage     = 'https://github.com/cheyongzi/CCAutoScrollView'
   s.license      = 'MIT'
-  s.author             = { "车勇子" => "389936133@qq.com" }
+  s.author             = { '车勇子' => '389936133@qq.com' }
   s.ios.deployment_target = '8.0'
   s.platform = :ios, '8.0'
-  s.source       = { :git => "https://github.com/cheyongzi/CCAutoScrollView.git", :tag => "2.0" }
+  s.source       = { :git => 'https://github.com/cheyongzi/CCAutoScrollView.git', :tag => s.version }
   s.source_files  = 'AutoScrollView/*.swift'
 
 end
