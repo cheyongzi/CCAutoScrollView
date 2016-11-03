@@ -7,6 +7,12 @@ CCAutoScrollView is an carousel view written by swift
 <li><p>Swift3.0+</p></li>
 <li><p>iOS8.0+</p></li>
 </ul>
+
+# Installation
+To integrate CCAutoScrollView into your Xcode project using CocoaPods, specify it in your Podfile:
+	target '<Your Target Name>' do
+    		pod 'CCAutoScrollView', '~> 2.0.2'
+	end
 	
 # Communication
 <ul>
