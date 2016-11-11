@@ -138,15 +138,11 @@ open class CCAutoScrollView: UIView {
     //MARK: - setup datas
     public private(set) var workDataSource: [Any] = []
     private func setupDatas() {
+        invalidateTimer()
+        currentIndex = 1
         workDataSource = dataSource
         guard dataSource.count > 0 else {
             return
-        }
-        
-        if timer == nil {
-            if autoScrollEnable {
-                self.setupTimer()
-            }
         }
         
         let firstItem = dataSource[0]
@@ -155,6 +151,12 @@ open class CCAutoScrollView: UIView {
         workDataSource.append(firstItem)
         
         collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: false)
+        
+        if timer == nil {
+            if autoScrollEnable {
+                self.setupTimer()
+            }
+        }
     }
     
     //MARK: - initialization
