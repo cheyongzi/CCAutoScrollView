@@ -150,6 +150,7 @@ open class CCAutoScrollView: UIView {
         workDataSource.insert(lastItem!, at: 0)
         workDataSource.append(firstItem)
         
+        collectionView.reloadData()
         collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: false)
         
         if timer == nil {
