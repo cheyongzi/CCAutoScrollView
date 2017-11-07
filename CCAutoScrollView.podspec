@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'CCAutoScrollView'
-  s.version      = '2.0.4'
+  s.version      = '2.0.5'
   s.summary      = '基于CollectionView实现的用户可自定义cell的循环滚动库'
   s.description  = '基于CollectionView实现的用户可自定义cell的循环滚动库'
   s.homepage     = 'https://github.com/cheyongzi/CCAutoScrollView'
